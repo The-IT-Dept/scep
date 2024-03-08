@@ -16,6 +16,8 @@ WORKDIR /app
 COPY --from=builder /build/scepclient-linux-amd64 /app/scepclient
 COPY --from=builder /build/scepserver-linux-amd64 /app/scepserver
 
+RUN apk add libc6-compat
+
 EXPOSE 8080
 
 VOLUME ["/data"]
